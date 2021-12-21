@@ -23,3 +23,51 @@ describe('doubleAndReturnArgs test', function(){
         expect(doubleAndReturnArgs([1,1,1],1,2,0)).toEqual([1,1,1,2,4,0]);
     });
 });
+
+describe('removeRandom test', function(){
+    it('should be shorter after removal', function(){
+        expect(removeRandom([1,3,4,5,6,4]).length).toEqual(5);
+    });
+});
+
+describe('extend test', function(){
+    it('should combine the arrays', function(){
+        expect(extend([1,2,3],[4,5,6])).toEqual([1,2,3,4,5,6]);
+    });
+    const animals = ["cat", "dog"];
+    const fruit = ["apple", "banana", "peach"];
+   
+    it('should not change the existing arrays and make a new one to combine', function(){
+        expect(extend(animals, fruit)).toEqual(["cat", "dog", "apple", "banana", "peach"]);
+        expect(animals).toEqual(["cat", "dog"]);
+        expect(fruit).toEqual(["apple", "banana", "peach"]);
+
+    });
+});
+
+describe("addKeyVal test", function(){
+    it('should add the new key/value pair', function(){
+        expect(addKeyVal({cat: "icarus", ferret: "mocha"}, "snake", "udon")).toEqual({cat: "icarus", ferret: "mocha", snake: "udon"});
+    });
+});
+
+describe("removeKey test", function(){
+    it('should remove the key', function(){
+        expect(removeKey({cat: "icarus", ferret: "mocha", snake: "udon"}, "cat")).toEqual({ferret: 'mocha', snake: 'udon'});
+    });
+});
+
+describe("combine test", function(){
+    it('should combine the objects', function(){
+        const cat = {name: 'russibo', color: 'grey'};
+        const quotes = {morning: 'feed me please', night: 'feed me please'};
+        expect(combine(cat, quotes)).toEqual({name: 'russibo', color: 'grey', morning: 'feed me please', night: 'feed me please'});
+    });
+});
+
+describe('update test', function(){
+    it('should update the object', function(){
+        const cat = {name: 'russibo', color: 'grey', favoriteToy: 'spring'};
+        expect(update(cat, 'name', "Icarus")).toEqual({name: 'Icarus', color: 'grey', favoriteToy: 'spring'});
+    });
+});

@@ -29,3 +29,42 @@ const mergeObjects = (objA, objB) => ({...objA, ...objB});
  */
 
 const doubleAndReturnArgs = (arr, ...otherArgs) => [...arr, ...otherArgs.map(arg => arg*2)];
+
+/** remove a random element in the items array
+and return a new array without that item. */
+
+const removeRandom = (items) => {
+    //gen random number between 0 and the length of the array
+    let num = Math.round(Math.random()*items.length);
+    //remove the value and return
+    return [...items.slice(0,num), ...items.slice(num+1, items.length)];
+}
+
+/** Return a new array with every item in array1 and array2. */
+
+const extend = (array1, array2) => ([...array1, ...array2]);
+
+/** Return a new object with all the keys and values
+from obj and a new key/value pair */
+
+const addKeyVal = (obj, key, val) => {
+    let newObj = {...obj};
+    newObj[key] = val;
+    return newObj;
+}
+
+/** Return a new object with a key removed. */
+
+const removeKey = (obj, key) => {
+    let newObj = {...obj};
+    delete newObj[key];
+    return newObj;
+}
+
+/** Combine two objects and return a new object. */
+
+const combine = (obj1, obj2) => ({...obj1, ...obj2});
+
+/** Return a new object with a modified key and value. */
+
+const update = (obj, key, val) => ({...obj, [key]:val});
